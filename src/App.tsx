@@ -1,7 +1,13 @@
-
+import { Calendar } from "./components/Calendar";
+import { CalendarEvents } from "./components/CalendarEvents";
+import { sampleEvents } from "./data/sample";
 function App() {
   return (
-    <h1>Week-planner</h1>
+    <div>
+      <Calendar />
+      <CalendarEvents
+        events={sampleEvents} />
+    </div>
   )
 }
 

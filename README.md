@@ -1,78 +1,38 @@
-# React + TypeScript + Vite
+# Funcionalidades
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Calendario
+Frame donde se muestra una representacion del google calendar en vivo
+[] Mostrar 1 dia por columna
+[] Mostrar las actividades de cada dia
 
-Currently, two official plugins are available:
+### Actividades
+Bloques de tiempo que definen una actividad en un mismo dia, tienen, nombre, horas y fecha, colores, descripcion y pueden ser hijos de un horario (Ej Horarios de Judo, Horario de clases de la U, ...)
+[] Se pueden crear
+[] Se pueden editar
+[] Se pueden eliminar
+[] Se conectan directamente con Google Calendar
+[] Se les pueden asignar o deletar tareas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+### Tareas
+Son objetivos concretos chekeables para completar, tipo checklist, tienen titulo, descripccion, y son hijos de una actvidad, y pueden tener una duracion
+[] Se pueden crear, actualizar y destruir
+[] Se puede asignar y reasignar a una actividad
+[] Se pueden checkear
+[] Tienen una pestaña dedicada donde solo aparecen las tareas
+[] Se visualizan en el calendario, como botones desplegables para ver su contenido.
+## Chat
+[] Se puede escribir, y enviar mensajes
+[] Se pueden ver los mensajes y scrollear el historial
+[] Un agente recive los mensaje y los responde
+### Agente
+Es el atributo de esta aplicacion, recive informacion por chat, y con ella, la organiza con la info que ya tiene, como los calendarios actuales, e informacion guardada de interes, por ejemplo, los horarios de los buses, o tiempo de traslado promedio de un lugar a otro, con esta informacion y la proporcionada, es capaz de modificar, crear, destruir o modificar el calendario, de la manera mas optima, tiene acces odirecto a las actividades y a las tareas, por cada respuesta, lo logico en su actuar seria.
+[] Poder modificar y organizar su informacion de contexto
+[] Hacer preguntas si es necesario si algo no queda del todo claro
+[] Hacer varias modificaciones en cadena
+[] Mostrar cada cambio que hace, a manera de un texto
+[] Modificar varias actividades y tareas en cadenas en una sola iteracion si es necesario
+## Comunicacion con Google Calendar
+Estos debe de tener una comunicacion directa con google calendar, mediante un boton, que permita pasar como input el calendario actual, y que este lo reciva y actualize mi calendario.
+[] Boton, que envia los calendarios directamente a Google calendar
+[] El mismo boton las tareas se envian a Google tasks
+[] No actualiza todo, solo lo necesario, a manera de un commit por ejemplo
